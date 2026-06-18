@@ -10,9 +10,191 @@
   <meta name="description" content="NFT Minting Bot — Ethereum, Base & Abstract">
   <link rel="manifest" href="manifest.json">
   <title>SnostarBot — NFT Minting Bot</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+    :root{--bg:#0a0a0f;--bg2:#111118;--bg3:#1a1a24;--border:#2a2a3a;--accent:#7c5cfc;--accent2:#a78bfa;--green:#22d3a0;--red:#f87171;--text:#f0f0ff;--muted:#6b6b8a;--card:#13131d;}
+    *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+    body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 20px;background:rgba(10,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+    .logo{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:700;letter-spacing:-0.5px;}
+    .logo-icon{width:32px;height:32px;background:linear-gradient(135deg,var(--accent),#5b21b6);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;}
+    .nav-cta{background:var(--accent);color:white;padding:8px 18px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;}
+    .hero{padding:120px 20px 80px;text-align:center;position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(124,92,252,0.15) 0%,transparent 70%);pointer-events:none;}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(124,92,252,0.15);border:1px solid rgba(124,92,252,0.3);padding:6px 14px;border-radius:100px;font-size:12px;font-weight:500;color:var(--accent2);margin-bottom:24px;}
+    .dot{width:6px;height:6px;background:var(--green);border-radius:50%;display:inline-block;animation:pulse 2s infinite;}
+    @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+    h1{font-size:clamp(36px,8vw,68px);font-weight:700;letter-spacing:-2px;line-height:1.05;margin-bottom:20px;}
+    .grad{background:linear-gradient(135deg,var(--accent2),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .hero-sub{font-size:18px;color:var(--muted);max-width:480px;margin:0 auto 40px;line-height:1.6;}
+    .hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+    .btn-primary{background:var(--accent);color:white;padding:14px 28px;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:transform 0.15s,opacity 0.15s;}
+    .btn-primary:hover{transform:translateY(-1px);opacity:0.9;}
+    .btn-secondary{background:var(--bg3);color:var(--text);padding:14px 28px;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none;border:1px solid var(--border);}
+    .chains{display:flex;justify-content:center;gap:16px;margin-top:48px;flex-wrap:wrap;}
+    .chain-pill{display:flex;align-items:center;gap:8px;background:var(--bg3);border:1px solid var(--border);padding:8px 16px;border-radius:100px;font-size:13px;font-weight:500;}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+    .stat{background:var(--bg);padding:32px 24px;text-align:center;}
+    .stat-num{font-family:'Space Mono',monospace;font-size:32px;font-weight:700;letter-spacing:-1px;}
+    .stat-label{font-size:13px;color:var(--muted);margin-top:4px;}
+    .section{padding:80px 20px;max-width:1100px;margin:0 auto;}
+    .section-label{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent2);margin-bottom:12px;}
+    .section-title{font-size:clamp(28px,5vw,42px);font-weight:700;letter-spacing:-1px;margin-bottom:16px;}
+    .section-sub{font-size:16px;color:var(--muted);max-width:520px;line-height:1.6;margin-bottom:48px;}
+    .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;}
+    .feature-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;transition:border-color 0.2s,transform 0.15s;}
+    .feature-card:hover{border-color:rgba(124,92,252,0.4);transform:translateY(-2px);}
+    .feature-icon{width:44px;height:44px;background:rgba(124,92,252,0.15);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px;}
+    .feature-title{font-size:16px;font-weight:600;margin-bottom:8px;}
+    .feature-desc{font-size:14px;color:var(--muted);line-height:1.6;}
+    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+    .step{padding:32px 24px;}
+    .step-num{font-family:'Space Mono',monospace;font-size:11px;color:var(--accent2);font-weight:700;letter-spacing:2px;margin-bottom:16px;}
+    .step-title{font-size:18px;font-weight:600;margin-bottom:10px;}
+    .step-desc{font-size:14px;color:var(--muted);line-height:1.6;}
+    .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+    .plan-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;position:relative;}
+    .plan-card.featured{border-color:var(--accent);background:linear-gradient(135deg,rgba(124,92,252,0.08),var(--card));}
+    .plan-badge{position:absolute;top:-12px;right:20px;background:var(--accent);color:white;font-size:11px;font-weight:700;letter-spacing:1px;padding:4px 12px;border-radius:100px;}
+    .plan-name{font-size:14px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;}
+    .plan-price{font-family:'Space Mono',monospace;font-size:32px;font-weight:700;margin-bottom:20px;}
+    .plan-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:24px;}
+    .plan-features li{font-size:14px;color:var(--muted);display:flex;align-items:center;gap:8px;}
+    .plan-features li::before{content:'checkmark';color:var(--green);font-weight:700;flex-shrink:0;}
+    .plan-btn{display:block;text-align:center;padding:12px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;}
+    .plan-btn.outline{border:1px solid var(--border);color:var(--text);}
+    .plan-btn.filled{background:var(--accent);color:white;}
+    .cta-section{margin:0 20px 80px;background:linear-gradient(135deg,rgba(124,92,252,0.15),rgba(34,211,160,0.08));border:1px solid rgba(124,92,252,0.3);border-radius:24px;padding:60px 40px;text-align:center;}
+    .cta-section h2{font-size:clamp(28px,5vw,40px);font-weight:700;letter-spacing:-1px;margin-bottom:16px;}
+    .cta-section p{color:var(--muted);font-size:16px;margin-bottom:32px;}
+    footer{border-top:1px solid var(--border);padding:32px 20px;text-align:center;color:var(--muted);font-size:13px;}
+    .install-banner{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--bg3);border:1px solid var(--accent);border-radius:12px;padding:14px 20px;display:none;align-items:center;gap:12px;font-size:14px;z-index:200;box-shadow:0 8px 32px rgba(0,0,0,0.4);white-space:nowrap;}
+    .install-btn{background:var(--accent);color:white;padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600;border:none;cursor:pointer;}
+    .install-close{background:none;border:none;color:var(--muted);cursor:pointer;font-size:16px;padding:0 4px;}
+    @media(max-width:600px){.stat-num{font-size:22px;}.cta-section{padding:40px 24px;}.hero{padding:100px 20px 60px;}}
+  </style>
 </head>
 <body>
-<p>Loading...</p>
-<script>window.location.href='https://t.me/YourBotUsername'</script>
+  <nav>
+    <div class="logo"><div class="logo-icon">⭐</div>SnostarBot</div>
+    <a href="https://t.me/Snostarbot" class="nav-cta">Open Bot →</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-badge"><span class="dot"></span>Live on Ethereum, Base & Abstract</div>
+    <h1>NFT Minting,<br><span class="grad">Automated.</span></h1>
+    <p class="hero-sub">Multi-wallet minting bot with WL detection, gas optimization, and instant execution. Mint faster than everyone else.</p>
+    <div class="hero-actions">
+      <a href="https://t.me/Snostarbot" class="btn-primary">🚀 Start Minting</a>
+      <a href="#features" class="btn-secondary">See Features</a>
+    </div>
+    <div class="chains">
+      <div class="chain-pill">⟠ Ethereum</div>
+      <div class="chain-pill">🔵 Base</div>
+      <div class="chain-pill">⬡ Abstract</div>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-num">50</div><div class="stat-label">Wallets per account</div></div>
+    <div class="stat"><div class="stat-num">12</div><div class="stat-label">RPC endpoints</div></div>
+    <div class="stat"><div class="stat-num">3</div><div class="stat-label">Chains supported</div></div>
+  </div>
+
+  <section class="section" id="features">
+    <div class="section-label">Features</div>
+    <h2 class="section-title">Everything you need<br>to mint at scale</h2>
+    <p class="section-sub">Paste any OpenSea link or contract address — bot auto-detects price, WL eligibility, and executes automatically.</p>
+    <div class="features-grid">
+      <div class="feature-card"><div class="feature-icon">🎯</div><div class="feature-title">Smart Mint Detection</div><div class="feature-desc">Paste any OpenSea, MagicEden, or custom mint link. Bot auto-detects price, max per wallet, and timing.</div></div>
+      <div class="feature-card"><div class="feature-icon">🎫</div><div class="feature-title">WL Eligibility Check</div><div class="feature-desc">Checks all wallets for whitelist status via on-chain mapping, SeaDrop, Lanyard, and token-gating.</div></div>
+      <div class="feature-card"><div class="feature-icon">👛</div><div class="feature-title">Multi-Wallet Minting</div><div class="feature-desc">Import up to 50 wallets from a single seed phrase. Mint from all simultaneously with per-wallet notifications.</div></div>
+      <div class="feature-card"><div class="feature-icon">⚡</div><div class="feature-title">Pre-Sign and Blast</div><div class="feature-desc">Pre-sign transactions before mint opens. When live, all wallets fire simultaneously with zero signing delay.</div></div>
+      <div class="feature-card"><div class="feature-icon">⏰</div><div class="feature-title">Scheduled Minting</div><div class="feature-desc">Set a time and go offline. Bot mints automatically — schedules persist even if bot restarts.</div></div>
+      <div class="feature-card"><div class="feature-icon">🔒</div><div class="feature-title">AES-256 Encrypted</div><div class="feature-desc">All private keys encrypted before storage. Seed phrases never saved — keys derived and discarded immediately.</div></div>
+      <div class="feature-card"><div class="feature-icon">⛽</div><div class="feature-title">Gas Optimization</div><div class="feature-desc">Real-time gas analysis with eco/standard/fast/sniper modes. Auto-recommends strategy based on competition.</div></div>
+      <div class="feature-card"><div class="feature-icon">💰</div><div class="feature-title">Auto-Sell</div><div class="feature-desc">After minting, automatically list NFTs on OpenSea at your price or floor price across all wallets.</div></div>
+      <div class="feature-card"><div class="feature-icon">🔍</div><div class="feature-title">Contract Analysis</div><div class="feature-desc">Honeypot detection, rug check, rarity analysis, floor price tracking, and whale wallet monitoring.</div></div>
+    </div>
+  </section>
+
+  <section style="background:var(--bg2);padding:80px 0;">
+    <div class="section" style="padding-top:0;padding-bottom:0;">
+      <div class="section-label">How it works</div>
+      <h2 class="section-title">From link to minted<br>in seconds</h2>
+      <div class="steps">
+        <div class="step"><div class="step-num">01</div><div class="step-title">Add your wallets</div><div class="step-desc">Import from seed phrase or add individually. Labels, WL detection, and balances tracked automatically.</div></div>
+        <div class="step"><div class="step-num">02</div><div class="step-title">Paste any mint link</div><div class="step-desc">OpenSea, MagicEden, Blur, Zora, or raw contract address. Bot detects everything automatically.</div></div>
+        <div class="step"><div class="step-num">03</div><div class="step-title">Check eligibility</div><div class="step-desc">All wallets checked for WL status instantly. WL wallets get proof loaded, public wallets ready to go.</div></div>
+        <div class="step"><div class="step-num">04</div><div class="step-title">Mint or schedule</div><div class="step-desc">Mint now across all wallets, or schedule for exact launch time. Bot handles it even when offline.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="plans">
+    <div class="section-label">Plans</div>
+    <h2 class="section-title">Start free,<br>scale when ready</h2>
+    <p class="section-sub">All plans include core minting. Upgrade for multi-wallet and advanced features.</p>
+    <div class="plans">
+      <div class="plan-card">
+        <div class="plan-name">Free</div>
+        <div class="plan-price">$0</div>
+        <ul class="plan-features">
+          <li>1 wallet</li><li>Basic minting</li><li>Gas tracking</li><li>Contract analysis</li><li>All 3 chains</li>
+        </ul>
+        <a href="https://t.me/Snostarbot" class="plan-btn outline">Get started</a>
+      </div>
+      <div class="plan-card featured">
+        <div class="plan-badge">POPULAR</div>
+        <div class="plan-name">Pro</div>
+        <div class="plan-price">Pro</div>
+        <ul class="plan-features">
+          <li>5 wallets</li><li>Fast and sniper gas</li><li>Poll mint</li><li>Scheduled minting</li><li>Contract scanner</li>
+        </ul>
+        <a href="https://t.me/Snostarbot" class="plan-btn filled">Upgrade in bot</a>
+      </div>
+      <div class="plan-card">
+        <div class="plan-name">Whale</div>
+        <div class="plan-price">Whale</div>
+        <ul class="plan-features">
+          <li>20 wallets</li><li>Multi-wallet mint</li><li>Auto-sell</li><li>WL proof loading</li><li>Priority support</li>
+        </ul>
+        <a href="https://t.me/Snostarbot" class="plan-btn outline">Upgrade in bot</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-section">
+    <h2>Ready to mint faster?</h2>
+    <p>Join SnostarBot and start minting in under 2 minutes.</p>
+    <a href="https://t.me/Snostarbot" class="btn-primary" style="display:inline-flex;">🚀 Open in Telegram</a>
+  </div>
+
+  <footer>
+    <div class="logo" style="justify-content:center;margin-bottom:16px;"><div class="logo-icon">⭐</div>SnostarBot</div>
+    <p style="margin-bottom:8px;">Fast NFT minting on Ethereum, Base and Abstract</p>
+    <p>2026 SnostarBot · <a href="https://t.me/Snostarbot" style="color:var(--accent2);text-decoration:none;">Telegram Bot</a></p>
+  </footer>
+
+  <div class="install-banner" id="installBanner">
+    📱 Add SnostarBot to home screen
+    <button class="install-btn" id="installBtn">Install</button>
+    <button class="install-close" id="installClose">✕</button>
+  </div>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});});
+    });
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt',e=>{
+      e.preventDefault();deferredPrompt=e;
+      document.getElementById('installBanner').style.display='flex';
+    });
+    document.getElementById('installBtn')?.addEventListener('click',async()=>{
+      if(deferredPrompt){deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;document.getElementById('installBanner').style.display='none';}
+    });
+    document.getElementById('installClose')?.addEventListener('click',()=>{document.getElementById('installBanner').style.display='none';});
+  </script>
 </body>
 </html>
