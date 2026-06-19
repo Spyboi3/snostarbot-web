@@ -200,3 +200,12 @@ app.post('/api/detect',auth,async(req,res)=>{
 });
 
 app.listen(PORT,()=>console.log('SnostarBot API running on port '+PORT));
+
+// Serve index.html for all non-API routes
+const fs=require('fs');
+app.get('*',(req,res)=>{
+  if(req.path.startsWith('/api'))return res.status(404).json({error:'Not found'});
+  const file=path.join(__dirname,'public',req.path==='/'?'index.html':req.path);
+  if(fs.existsSync(file))return res.sendFile(file);
+  res.sendFile(path.join(__dirname,'public','index.html'));
+});
