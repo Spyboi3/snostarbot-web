@@ -11,124 +11,133 @@
     :root{--bg:#0a0a0f;--bg2:#111118;--bg3:#1a1a24;--border:#2a2a3a;--accent:#7c5cfc;--accent2:#a78bfa;--green:#22d3a0;--red:#f87171;--yellow:#fbbf24;--text:#f0f0ff;--muted:#6b6b8a;--card:#13131d;}
     *{margin:0;padding:0;box-sizing:border-box;}
     body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
-
-    /* AUTH */
-    .auth-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;}
-    .auth-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:40px;width:100%;max-width:400px;}
-    .auth-logo{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:700;margin-bottom:32px;justify-content:center;}
-    .auth-logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--accent),#5b21b6);border-radius:10px;display:flex;align-items:center;justify-content:center;}
-    .auth-tabs{display:flex;gap:0;margin-bottom:28px;background:var(--bg3);border-radius:10px;padding:4px;}
+    .auth-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;background:radial-gradient(ellipse at 50% 0%,rgba(124,92,252,0.12) 0%,transparent 60%);}
+    .auth-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:40px;width:100%;max-width:420px;}
+    .auth-logo{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:700;margin-bottom:8px;justify-content:center;}
+    .auth-logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--accent),#5b21b6);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;}
+    .auth-subtitle{text-align:center;color:var(--muted);font-size:14px;margin-bottom:32px;}
+    .auth-tabs{display:flex;gap:0;margin-bottom:24px;background:var(--bg3);border-radius:10px;padding:4px;}
     .auth-tab{flex:1;padding:10px;text-align:center;font-size:14px;font-weight:600;border-radius:8px;cursor:pointer;transition:all 0.2s;color:var(--muted);}
     .auth-tab.active{background:var(--accent);color:white;}
-    .form-group{margin-bottom:16px;}
-    .form-label{font-size:13px;color:var(--muted);margin-bottom:6px;display:block;}
+    .form-group{margin-bottom:14px;}
+    .form-label{font-size:12px;color:var(--muted);margin-bottom:5px;display:block;text-transform:uppercase;letter-spacing:0.5px;}
     .form-input{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px 16px;color:var(--text);font-size:14px;font-family:inherit;outline:none;transition:border-color 0.2s;}
     .form-input:focus{border-color:var(--accent);}
-    .btn{width:100%;padding:13px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;border:none;transition:opacity 0.2s;}
+    .btn{width:100%;padding:13px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;border:none;transition:all 0.2s;font-family:inherit;}
     .btn-accent{background:var(--accent);color:white;}
-    .btn-accent:hover{opacity:0.9;}
-    .btn-tg{background:#229ED9;color:white;margin-top:12px;display:flex;align-items:center;justify-content:center;gap:8px;}
+    .btn-accent:hover{opacity:0.9;transform:translateY(-1px);}
+    .btn-tg{background:#229ED9;color:white;display:flex;align-items:center;justify-content:center;gap:8px;}
+    .btn-tg:hover{opacity:0.9;}
     .divider{display:flex;align-items:center;gap:12px;margin:16px 0;color:var(--muted);font-size:12px;}
     .divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border);}
-    .error-msg{background:rgba(248,113,113,0.1);border:1px solid rgba(248,113,113,0.3);color:var(--red);padding:10px 14px;border-radius:8px;font-size:13px;margin-bottom:16px;display:none;}
-
+    .error-msg{background:rgba(248,113,113,0.1);border:1px solid rgba(248,113,113,0.3);color:var(--red);padding:10px 14px;border-radius:8px;font-size:13px;margin-bottom:14px;display:none;}
+    .success-msg{background:rgba(34,211,160,0.1);border:1px solid rgba(34,211,160,0.3);color:var(--green);padding:10px 14px;border-radius:8px;font-size:13px;margin-bottom:14px;display:none;}
     /* DASHBOARD */
-    .dashboard{display:none;min-height:100vh;}
-    .sidebar{position:fixed;left:0;top:0;bottom:0;width:240px;background:var(--bg2);border-right:1px solid var(--border);padding:20px 0;display:flex;flex-direction:column;}
-    .sidebar-logo{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700;padding:0 20px 24px;}
+    .dashboard{display:none;min-height:100vh;display:none;}
+    .sidebar{position:fixed;left:0;top:0;bottom:0;width:240px;background:var(--bg2);border-right:1px solid var(--border);padding:20px 0;display:flex;flex-direction:column;z-index:50;}
+    .sidebar-logo{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700;padding:0 20px 24px;border-bottom:1px solid var(--border);margin-bottom:8px;}
     .sidebar-logo-icon{width:30px;height:30px;background:linear-gradient(135deg,var(--accent),#5b21b6);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;}
-    .nav-item{display:flex;align-items:center;gap:10px;padding:11px 20px;font-size:14px;font-weight:500;color:var(--muted);cursor:pointer;transition:all 0.2s;border-left:2px solid transparent;}
+    .nav-section{padding:8px 20px 4px;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:8px;}
+    .nav-item{display:flex;align-items:center;gap:10px;padding:10px 20px;font-size:14px;font-weight:500;color:var(--muted);cursor:pointer;transition:all 0.15s;border-left:2px solid transparent;margin:1px 0;}
     .nav-item:hover{color:var(--text);background:rgba(255,255,255,0.03);}
     .nav-item.active{color:var(--accent2);border-left-color:var(--accent);background:rgba(124,92,252,0.08);}
-    .nav-icon{width:18px;text-align:center;}
-    .sidebar-bottom{margin-top:auto;padding:20px;}
-    .user-pill{display:flex;align-items:center;gap:10px;background:var(--bg3);border-radius:10px;padding:10px 14px;}
-    .user-avatar{width:32px;height:32px;background:linear-gradient(135deg,var(--accent),var(--green));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;}
+    .nav-badge{margin-left:auto;background:var(--accent);color:white;font-size:10px;font-weight:700;padding:2px 7px;border-radius:100px;}
+    .sidebar-bottom{margin-top:auto;padding:16px 20px;border-top:1px solid var(--border);}
+    .user-pill{display:flex;align-items:center;gap:10px;background:var(--bg3);border-radius:10px;padding:10px 12px;}
+    .user-avatar{width:32px;height:32px;background:linear-gradient(135deg,var(--accent),var(--green));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;}
     .user-info{flex:1;min-width:0;}
-    .user-email{font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-    .user-plan{font-size:11px;color:var(--accent2);text-transform:uppercase;letter-spacing:0.5px;}
-    .logout-btn{background:none;border:none;color:var(--muted);cursor:pointer;font-size:16px;padding:4px;}
-
-    /* MAIN */
+    .user-name{font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .user-plan{font-size:11px;color:var(--accent2);text-transform:uppercase;}
+    .logout-btn{background:none;border:none;color:var(--muted);cursor:pointer;font-size:18px;flex-shrink:0;}
     .main{margin-left:240px;padding:32px;min-height:100vh;}
     .page{display:none;}
     .page.active{display:block;}
-    .page-title{font-size:24px;font-weight:700;letter-spacing:-0.5px;margin-bottom:8px;}
-    .page-sub{font-size:14px;color:var(--muted);margin-bottom:32px;}
-
+    .page-header{margin-bottom:28px;}
+    .page-title{font-size:22px;font-weight:700;letter-spacing:-0.5px;}
+    .page-sub{font-size:13px;color:var(--muted);margin-top:4px;}
     /* CARDS */
-    .cards-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:32px;}
-    .stat-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;}
-    .stat-card-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;}
-    .stat-card-value{font-family:'Space Mono',monospace;font-size:28px;font-weight:700;}
-    .stat-card-value.green{color:var(--green);}
-    .stat-card-value.accent{color:var(--accent2);}
-
+    .cards-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:24px;}
+    .stat-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;}
+    .stat-icon{font-size:20px;margin-bottom:10px;}
+    .stat-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+    .stat-value{font-family:'Space Mono',monospace;font-size:26px;font-weight:700;}
+    .stat-value.green{color:var(--green);}
+    .stat-value.accent{color:var(--accent2);}
+    .stat-value.yellow{color:var(--yellow);}
     /* TABLE */
-    .table-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
-    .table-header{padding:20px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
-    .table-title{font-size:15px;font-weight:600;}
+    .table-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:16px;}
+    .table-header{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+    .table-title{font-size:14px;font-weight:600;}
     .table{width:100%;border-collapse:collapse;}
-    .table th{padding:12px 24px;text-align:left;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid var(--border);}
-    .table td{padding:16px 24px;font-size:14px;border-bottom:1px solid rgba(255,255,255,0.04);}
+    .table th{padding:10px 20px;text-align:left;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid var(--border);}
+    .table td{padding:14px 20px;font-size:13px;border-bottom:1px solid rgba(255,255,255,0.03);}
     .table tr:last-child td{border-bottom:none;}
     .table tr:hover td{background:rgba(255,255,255,0.02);}
-    .badge{display:inline-flex;padding:4px 10px;border-radius:100px;font-size:11px;font-weight:600;}
+    .badge{display:inline-flex;padding:3px 9px;border-radius:100px;font-size:11px;font-weight:600;}
     .badge-green{background:rgba(34,211,160,0.15);color:var(--green);}
     .badge-red{background:rgba(248,113,113,0.15);color:var(--red);}
     .badge-yellow{background:rgba(251,191,36,0.15);color:var(--yellow);}
     .badge-purple{background:rgba(124,92,252,0.15);color:var(--accent2);}
-    .mono{font-family:'Space Mono',monospace;font-size:12px;}
-
-    /* MINT PAGE */
-    .mint-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:16px;}
-    .mint-input{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px 16px;color:var(--text);font-size:14px;font-family:inherit;outline:none;transition:border-color 0.2s;}
-    .mint-input:focus{border-color:var(--accent);}
-    .mint-btn{background:var(--accent);color:white;padding:13px 24px;border-radius:10px;font-size:14px;font-weight:600;border:none;cursor:pointer;transition:opacity 0.2s;}
-    .mint-btn:hover{opacity:0.9;}
-    .mint-btn:disabled{opacity:0.5;cursor:not-allowed;}
-    .mint-result{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:16px;display:none;}
-    .mint-result-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
-    .mint-result-row:last-child{border-bottom:none;}
-    .mint-result-label{font-size:13px;color:var(--muted);}
-    .mint-result-value{font-size:13px;font-weight:600;}
-    .mint-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;}
-    .mint-action-btn{flex:1;min-width:120px;padding:12px;border-radius:10px;font-size:13px;font-weight:600;border:none;cursor:pointer;transition:opacity 0.2s;}
-
+    .badge-blue{background:rgba(34,149,211,0.15);color:#60a5fa;}
+    .mono{font-family:'Space Mono',monospace;font-size:11px;}
+    /* MINT */
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:16px;}
+    .card-title{font-size:15px;font-weight:600;margin-bottom:16px;}
+    .input{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px 16px;color:var(--text);font-size:14px;font-family:inherit;outline:none;transition:border-color 0.2s;margin-bottom:12px;}
+    .input:focus{border-color:var(--accent);}
+    select.input{cursor:pointer;}
+    .row{display:flex;gap:10px;flex-wrap:wrap;}
+    .action-btn{padding:11px 20px;border-radius:10px;font-size:13px;font-weight:600;border:none;cursor:pointer;transition:all 0.2s;font-family:inherit;}
+    .action-btn-primary{background:var(--accent);color:white;}
+    .action-btn-secondary{background:var(--bg3);color:var(--text);border:1px solid var(--border);}
+    .action-btn-green{background:rgba(34,211,160,0.15);color:var(--green);border:1px solid rgba(34,211,160,0.3);}
+    .action-btn:hover{opacity:0.85;transform:translateY(-1px);}
+    .action-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none;}
+    .result-box{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:18px;display:none;margin-top:4px;}
+    .result-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);}
+    .result-row:last-child{border-bottom:none;}
+    .result-label{font-size:12px;color:var(--muted);}
+    .result-value{font-size:13px;font-weight:600;}
+    .live-dot{width:8px;height:8px;background:var(--green);border-radius:50%;display:inline-block;margin-right:6px;animation:pulse 2s infinite;}
+    @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
     /* WALLETS */
-    .wallet-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;}
-    .wallet-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;}
-    .wallet-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
-    .wallet-label{font-size:14px;font-weight:600;}
-    .wallet-addr{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);word-break:break-all;margin-bottom:12px;}
-    .wallet-bal{font-size:20px;font-weight:700;color:var(--green);}
-    .wallet-actions{display:flex;gap:8px;margin-top:12px;}
-    .wallet-action-btn{flex:1;padding:8px;border-radius:8px;font-size:12px;font-weight:600;border:1px solid var(--border);background:none;color:var(--text);cursor:pointer;}
-    .wallet-action-btn.danger{border-color:rgba(248,113,113,0.3);color:var(--red);}
-    .add-wallet-card{background:var(--card);border:1px dashed var(--border);border-radius:16px;padding:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;cursor:pointer;transition:border-color 0.2s;min-height:160px;}
-    .add-wallet-card:hover{border-color:var(--accent);}
-    .add-wallet-icon{font-size:28px;color:var(--muted);}
-    .add-wallet-text{font-size:13px;color:var(--muted);}
-
+    .wallet-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;}
+    .wallet-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;}
+    .wallet-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+    .wallet-label-text{font-size:14px;font-weight:600;}
+    .wallet-addr{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);word-break:break-all;margin-bottom:12px;line-height:1.5;}
+    .wallet-actions{display:flex;gap:6px;}
+    .wallet-btn{flex:1;padding:7px;border-radius:7px;font-size:11px;font-weight:600;border:1px solid var(--border);background:none;color:var(--text);cursor:pointer;font-family:inherit;}
+    .wallet-btn.danger{border-color:rgba(248,113,113,0.3);color:var(--red);}
+    .add-wallet-btn{background:var(--card);border:2px dashed var(--border);border-radius:14px;padding:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:pointer;min-height:140px;transition:border-color 0.2s;}
+    .add-wallet-btn:hover{border-color:var(--accent);}
+    /* GAS */
+    .gas-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:16px;}
+    .gas-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;text-align:center;cursor:pointer;transition:all 0.2s;}
+    .gas-card:hover,.gas-card.selected{border-color:var(--accent);background:rgba(124,92,252,0.08);}
+    .gas-name{font-size:12px;color:var(--muted);margin-bottom:6px;}
+    .gas-value{font-family:'Space Mono',monospace;font-size:20px;font-weight:700;}
+    .gas-label{font-size:11px;color:var(--muted);margin-top:4px;}
     /* MODAL */
-    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:none;align-items:center;justify-content:center;z-index:1000;padding:20px;}
+    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:none;align-items:center;justify-content:center;z-index:200;padding:20px;}
     .modal-overlay.show{display:flex;}
-    .modal{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:32px;width:100%;max-width:440px;}
-    .modal-title{font-size:18px;font-weight:700;margin-bottom:20px;}
-    .modal-actions{display:flex;gap:10px;margin-top:24px;}
-    .modal-btn{flex:1;padding:12px;border-radius:10px;font-size:14px;font-weight:600;border:none;cursor:pointer;}
-    .modal-btn-cancel{background:var(--bg3);color:var(--text);}
-    .modal-btn-confirm{background:var(--accent);color:white;}
-
+    .modal{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:28px;width:100%;max-width:420px;}
+    .modal-title{font-size:17px;font-weight:700;margin-bottom:18px;}
+    .modal-actions{display:flex;gap:10px;margin-top:20px;}
+    .modal-btn{flex:1;padding:11px;border-radius:10px;font-size:14px;font-weight:600;border:none;cursor:pointer;font-family:inherit;}
     /* MOBILE */
     @media(max-width:768px){
       .sidebar{transform:translateX(-100%);transition:transform 0.3s;z-index:100;}
       .sidebar.open{transform:translateX(0);}
-      .main{margin-left:0;padding:20px;}
-      .mobile-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;}
-      .hamburger{background:none;border:none;color:var(--text);font-size:20px;cursor:pointer;}
+      .main{margin-left:0;padding:16px;}
+      .mobile-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
+      .hamburger{background:none;border:none;color:var(--text);font-size:22px;cursor:pointer;}
     }
-    @media(min-width:769px){.mobile-header{display:none;}}
+    @media(min-width:769px){.mobile-nav{display:none;}}
+    .toast{position:fixed;bottom:24px;right:24px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px 18px;font-size:13px;z-index:300;transform:translateY(100px);opacity:0;transition:all 0.3s;}
+    .toast.show{transform:translateY(0);opacity:1;}
+    .toast.success{border-color:rgba(34,211,160,0.4);color:var(--green);}
+    .toast.error{border-color:rgba(248,113,113,0.4);color:var(--red);}
   </style>
 </head>
 <body>
@@ -136,29 +145,26 @@
 <!-- AUTH -->
 <div class="auth-wrap" id="authWrap">
   <div class="auth-card">
-    <div class="auth-logo">
-      <div class="auth-logo-icon">⭐</div>
-      SnostarBot
-    </div>
+    <div class="auth-logo"><div class="auth-logo-icon">⭐</div>SnostarBot</div>
+    <div class="auth-subtitle">NFT Minting Dashboard</div>
     <div class="auth-tabs">
       <div class="auth-tab active" onclick="switchTab('login')">Login</div>
       <div class="auth-tab" onclick="switchTab('register')">Register</div>
     </div>
     <div id="errorMsg" class="error-msg"></div>
+    <div id="successMsg" class="success-msg"></div>
     <div id="loginForm">
       <div class="form-group">
         <label class="form-label">Email</label>
-        <input type="email" class="form-input" id="loginEmail" placeholder="you@example.com">
+        <input type="email" class="form-input" id="loginEmail" placeholder="you@example.com" onkeydown="if(event.key==='Enter')login()">
       </div>
       <div class="form-group">
         <label class="form-label">Password</label>
-        <input type="password" class="form-input" id="loginPassword" placeholder="••••••••">
+        <input type="password" class="form-input" id="loginPassword" placeholder="••••••••" onkeydown="if(event.key==='Enter')login()">
       </div>
       <button class="btn btn-accent" onclick="login()">Login</button>
       <div class="divider">or</div>
-      <button class="btn btn-tg" onclick="telegramLogin()">
-        <span>✈️</span> Continue with Telegram
-      </button>
+      <button class="btn btn-tg" onclick="telegramLogin()">✈️ Login with Telegram</button>
     </div>
     <div id="registerForm" style="display:none;">
       <div class="form-group">
@@ -171,7 +177,7 @@
       </div>
       <div class="form-group">
         <label class="form-label">Confirm Password</label>
-        <input type="password" class="form-input" id="regPasswordConfirm" placeholder="Repeat password">
+        <input type="password" class="form-input" id="regConfirm" placeholder="Repeat password">
       </div>
       <button class="btn btn-accent" onclick="register()">Create Account</button>
     </div>
@@ -180,180 +186,209 @@
 
 <!-- DASHBOARD -->
 <div class="dashboard" id="dashboard">
-  <!-- Sidebar -->
   <div class="sidebar" id="sidebar">
-    <div class="sidebar-logo">
-      <div class="sidebar-logo-icon">⭐</div>
-      SnostarBot
-    </div>
-    <div class="nav-item active" onclick="showPage('overview')">
-      <span class="nav-icon">📊</span> Overview
-    </div>
-    <div class="nav-item" onclick="showPage('mint')">
-      <span class="nav-icon">🎯</span> Mint
-    </div>
-    <div class="nav-item" onclick="showPage('wallets')">
-      <span class="nav-icon">👛</span> Wallets
-    </div>
-    <div class="nav-item" onclick="showPage('history')">
-      <span class="nav-icon">📋</span> History
-    </div>
-    <div class="nav-item" onclick="showPage('settings')">
-      <span class="nav-icon">⚙️</span> Settings
-    </div>
+    <div class="sidebar-logo"><div class="sidebar-logo-icon">⭐</div>SnostarBot</div>
+    <div class="nav-section">Main</div>
+    <div class="nav-item active" onclick="showPage('overview',this)"><span>📊</span>Overview</div>
+    <div class="nav-item" onclick="showPage('mint',this)"><span>🎯</span>Mint<span class="nav-badge">NEW</span></div>
+    <div class="nav-item" onclick="showPage('wallets',this)"><span>👛</span>Wallets</div>
+    <div class="nav-section">Tools</div>
+    <div class="nav-item" onclick="showPage('eligibility',this)"><span>🎫</span>WL Checker</div>
+    <div class="nav-item" onclick="showPage('gas',this)"><span>⛽</span>Gas Tracker</div>
+    <div class="nav-item" onclick="showPage('history',this)"><span>📋</span>History</div>
+    <div class="nav-section">Account</div>
+    <div class="nav-item" onclick="showPage('settings',this)"><span>⚙️</span>Settings</div>
     <div class="sidebar-bottom">
       <div class="user-pill">
         <div class="user-avatar" id="userAvatar">S</div>
         <div class="user-info">
-          <div class="user-email" id="userEmail">Loading...</div>
+          <div class="user-name" id="userName">Loading...</div>
           <div class="user-plan" id="userPlan">free</div>
         </div>
-        <button class="logout-btn" onclick="logout()" title="Logout">↗</button>
+        <button class="logout-btn" onclick="logout()" title="Logout">⇥</button>
       </div>
     </div>
   </div>
 
-  <!-- Main -->
   <div class="main">
-    <!-- Mobile header -->
-    <div class="mobile-header">
+    <div class="mobile-nav">
       <button class="hamburger" onclick="toggleSidebar()">☰</button>
-      <div style="font-weight:700;">SnostarBot</div>
-      <div></div>
+      <span style="font-weight:700;">SnostarBot</span>
+      <span></span>
     </div>
 
     <!-- OVERVIEW -->
     <div class="page active" id="page-overview">
-      <div class="page-title">Overview</div>
-      <div class="page-sub">Your minting dashboard</div>
+      <div class="page-header">
+        <div class="page-title">Overview</div>
+        <div class="page-sub">Your minting activity at a glance</div>
+      </div>
       <div class="cards-row">
-        <div class="stat-card">
-          <div class="stat-card-label">Total Mints</div>
-          <div class="stat-card-value accent" id="totalMints">0</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-card-label">Success Rate</div>
-          <div class="stat-card-value green" id="successRate">0%</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-card-label">Wallets</div>
-          <div class="stat-card-value" id="walletCount">0</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-card-label">Plan</div>
-          <div class="stat-card-value accent" id="planDisplay">FREE</div>
-        </div>
+        <div class="stat-card"><div class="stat-icon">🎯</div><div class="stat-label">Total Mints</div><div class="stat-value accent" id="statMints">0</div></div>
+        <div class="stat-card"><div class="stat-icon">✅</div><div class="stat-label">Success Rate</div><div class="stat-value green" id="statRate">0%</div></div>
+        <div class="stat-card"><div class="stat-icon">👛</div><div class="stat-label">Wallets</div><div class="stat-value" id="statWallets">0</div></div>
+        <div class="stat-card"><div class="stat-icon">💎</div><div class="stat-label">Plan</div><div class="stat-value accent" id="statPlan">FREE</div></div>
       </div>
       <div class="table-card">
         <div class="table-header">
-          <div class="table-title">Recent Mints</div>
-          <a href="https://t.me/Snostarbot" style="color:var(--accent2);font-size:13px;text-decoration:none;">Open Bot →</a>
+          <div class="table-title">Recent Activity</div>
+          <a href="https://t.me/Snostarbot" target="_blank" style="color:var(--accent2);font-size:13px;text-decoration:none;">Open Bot →</a>
         </div>
         <table class="table">
-          <thead>
-            <tr>
-              <th>Contract</th>
-              <th>Chain</th>
-              <th>Status</th>
-              <th>TX</th>
-              <th>Date</th>
-            </tr>
-          </thead>
-          <tbody id="recentMints">
-            <tr><td colspan="5" style="text-align:center;color:var(--muted);padding:32px;">No mints yet. Start minting in the bot!</td></tr>
-          </tbody>
+          <thead><tr><th>Contract</th><th>Chain</th><th>Status</th><th>Date</th></tr></thead>
+          <tbody id="recentActivity"><tr><td colspan="4" style="text-align:center;color:var(--muted);padding:28px;">No activity yet</td></tr></tbody>
         </table>
+      </div>
+      <div class="card" style="background:linear-gradient(135deg,rgba(124,92,252,0.1),rgba(34,211,160,0.05));border-color:rgba(124,92,252,0.3);">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+          <div>
+            <div style="font-size:15px;font-weight:600;margin-bottom:4px;">🚀 Ready to mint?</div>
+            <div style="font-size:13px;color:var(--muted);">Paste any OpenSea link or contract address to get started</div>
+          </div>
+          <button class="action-btn action-btn-primary" onclick="showPage('mint',document.querySelector('[onclick*=mint]'))">Go to Mint →</button>
+        </div>
       </div>
     </div>
 
     <!-- MINT -->
     <div class="page" id="page-mint">
-      <div class="page-title">Mint</div>
-      <div class="page-sub">Paste any OpenSea link or contract address</div>
-      <div class="mint-card">
-        <div class="form-group">
-          <label class="form-label">OpenSea Link or Contract Address</label>
-          <input type="text" class="mint-input" id="mintInput" placeholder="https://opensea.io/collection/... or 0x...">
+      <div class="page-header">
+        <div class="page-title">Mint</div>
+        <div class="page-sub">Detect and execute NFT mints</div>
+      </div>
+      <div class="card">
+        <div class="card-title">🔍 Detect Mint</div>
+        <input type="text" class="input" id="mintInput" placeholder="Paste OpenSea link or contract address (0x...)">
+        <select class="input" id="mintChain">
+          <option value="ethereum">⟠ Ethereum</option>
+          <option value="base">🔵 Base</option>
+          <option value="abstract">⬡ Abstract</option>
+        </select>
+        <div class="row">
+          <button class="action-btn action-btn-primary" onclick="detectMint()" id="detectBtn">🔍 Detect</button>
         </div>
-        <div class="form-group">
-          <label class="form-label">Chain</label>
-          <select class="mint-input" id="mintChain">
-            <option value="ethereum">⟠ Ethereum</option>
-            <option value="base">🔵 Base</option>
-            <option value="abstract">⬡ Abstract</option>
-          </select>
-        </div>
-        <button class="mint-btn" onclick="detectContract()">🔍 Detect Mint Details</button>
-        <div class="mint-result" id="mintResult">
-          <div class="mint-result-row"><span class="mint-result-label">Contract</span><span class="mint-result-value mono" id="res-contract">-</span></div>
-          <div class="mint-result-row"><span class="mint-result-label">Mint Price</span><span class="mint-result-value" id="res-price">-</span></div>
-          <div class="mint-result-row"><span class="mint-result-label">Max Per Wallet</span><span class="mint-result-value" id="res-max">-</span></div>
-          <div class="mint-result-row"><span class="mint-result-label">Status</span><span class="mint-result-value" id="res-status">-</span></div>
-          <div class="mint-result-row"><span class="mint-result-label">Supply</span><span class="mint-result-value" id="res-supply">-</span></div>
-          <div class="mint-result-row"><span class="mint-result-label">Mint Opens</span><span class="mint-result-value" id="res-start">-</span></div>
-        </div>
-        <div class="mint-actions" id="mintActions" style="display:none;">
-          <button class="mint-action-btn" style="background:var(--accent);color:white;" onclick="openInBot('mint')">🚀 Mint in Bot</button>
-          <button class="mint-action-btn" style="background:var(--bg3);border:1px solid var(--border);" onclick="openInBot('pollmint')">⏰ Poll Mint</button>
-          <button class="mint-action-btn" style="background:var(--bg3);border:1px solid var(--border);" onclick="openInBot('multimint')">👛 Multi Mint</button>
+        <div class="result-box" id="mintResult">
+          <div class="result-row"><span class="result-label">Contract</span><span class="result-value mono" id="r-contract">-</span></div>
+          <div class="result-row"><span class="result-label">Price</span><span class="result-value" id="r-price">-</span></div>
+          <div class="result-row"><span class="result-label">Max Per Wallet</span><span class="result-value" id="r-max">-</span></div>
+          <div class="result-row"><span class="result-label">Status</span><span class="result-value" id="r-status">-</span></div>
+          <div class="result-row"><span class="result-label">Supply</span><span class="result-value" id="r-supply">-</span></div>
+          <div class="result-row"><span class="result-label">Opens</span><span class="result-value" id="r-start">-</span></div>
+          <div class="result-row"><span class="result-label">Ends</span><span class="result-value" id="r-end">-</span></div>
         </div>
       </div>
-      <div class="mint-card">
-        <div style="font-size:15px;font-weight:600;margin-bottom:8px;">💡 How to mint</div>
-        <div style="font-size:14px;color:var(--muted);line-height:1.7;">
-          1. Paste any OpenSea link or contract address above<br>
-          2. Click Detect to see price, max wallet, and timing<br>
-          3. Click Mint in Bot to execute via Telegram<br>
-          4. Use Multi Mint to mint from all wallets at once
+      <div class="card" id="mintActionsCard" style="display:none;">
+        <div class="card-title">🚀 Execute Mint</div>
+        <div style="font-size:13px;color:var(--muted);margin-bottom:16px;">Choose how to mint. All actions execute via your Telegram bot.</div>
+        <div class="row">
+          <button class="action-btn action-btn-primary" onclick="botAction('mint')">🎯 Mint Now</button>
+          <button class="action-btn action-btn-secondary" onclick="botAction('multimint')">👛 Multi Mint</button>
+          <button class="action-btn action-btn-secondary" onclick="botAction('pollmint')">⏰ Poll Mint</button>
+          <button class="action-btn action-btn-secondary" onclick="botAction('presign')">⚡ Pre-Sign</button>
+          <button class="action-btn action-btn-green" onclick="botAction('checkeligibility')">🎫 Check WL</button>
         </div>
       </div>
     </div>
 
     <!-- WALLETS -->
     <div class="page" id="page-wallets">
-      <div class="page-title">Wallets</div>
-      <div class="page-sub">Manage your minting wallets</div>
+      <div class="page-header" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <div>
+          <div class="page-title">Wallets</div>
+          <div class="page-sub">Manage your minting wallets</div>
+        </div>
+        <button class="action-btn action-btn-primary" onclick="showModal('addWalletModal')">+ Add Wallet</button>
+      </div>
       <div class="wallet-grid" id="walletGrid">
-        <div class="add-wallet-card" onclick="showAddWallet()">
-          <div class="add-wallet-icon">+</div>
-          <div class="add-wallet-text">Add Wallet</div>
+        <div style="text-align:center;color:var(--muted);padding:40px;grid-column:1/-1;">Loading wallets...</div>
+      </div>
+    </div>
+
+    <!-- WL CHECKER -->
+    <div class="page" id="page-eligibility">
+      <div class="page-header">
+        <div class="page-title">WL Checker</div>
+        <div class="page-sub">Check whitelist eligibility across all wallets</div>
+      </div>
+      <div class="card">
+        <div class="card-title">🎫 Check Eligibility</div>
+        <input type="text" class="input" id="eligContract" placeholder="Contract address (0x...)">
+        <select class="input" id="eligChain">
+          <option value="ethereum">⟠ Ethereum</option>
+          <option value="base">🔵 Base</option>
+          <option value="abstract">⬡ Abstract</option>
+        </select>
+        <button class="action-btn action-btn-primary" onclick="checkEligibility()">Check All Wallets</button>
+        <div class="result-box" id="eligResult" style="margin-top:12px;">
+          <div id="eligContent"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GAS -->
+    <div class="page" id="page-gas">
+      <div class="page-header">
+        <div class="page-title">Gas Tracker</div>
+        <div class="page-sub">Live gas prices and strategy</div>
+      </div>
+      <div class="gas-grid" id="gasGrid">
+        <div class="gas-card"><div class="gas-name">🌿 Eco</div><div class="gas-value" id="g-eco">--</div><div class="gas-label">gwei</div></div>
+        <div class="gas-card"><div class="gas-name">⚡ Standard</div><div class="gas-value" id="g-std">--</div><div class="gas-label">gwei</div></div>
+        <div class="gas-card"><div class="gas-name">🚀 Fast</div><div class="gas-value" id="g-fast">--</div><div class="gas-label">gwei</div></div>
+        <div class="gas-card"><div class="gas-name">🎯 Sniper</div><div class="gas-value" id="g-sniper">--</div><div class="gas-label">gwei</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Set Gas Strategy in Bot</div>
+        <div style="font-size:13px;color:var(--muted);margin-bottom:16px;">Tap to set gas strategy in your Telegram bot</div>
+        <div class="row">
+          <button class="action-btn action-btn-secondary" onclick="setBotGas('eco')">🌿 Eco</button>
+          <button class="action-btn action-btn-secondary" onclick="setBotGas('standard')">⚡ Standard</button>
+          <button class="action-btn action-btn-secondary" onclick="setBotGas('fast')">🚀 Fast</button>
+          <button class="action-btn action-btn-primary" onclick="setBotGas('sniper')">🎯 Sniper</button>
         </div>
       </div>
     </div>
 
     <!-- HISTORY -->
     <div class="page" id="page-history">
-      <div class="page-title">Mint History</div>
-      <div class="page-sub">All your past mints</div>
+      <div class="page-header">
+        <div class="page-title">Mint History</div>
+        <div class="page-sub">All your past mints</div>
+      </div>
       <div class="table-card">
         <table class="table">
-          <thead>
-            <tr><th>Contract</th><th>Chain</th><th>Price</th><th>Status</th><th>TX Hash</th><th>Date</th></tr>
-          </thead>
-          <tbody id="historyTable">
-            <tr><td colspan="6" style="text-align:center;color:var(--muted);padding:32px;">No mint history yet.</td></tr>
-          </tbody>
+          <thead><tr><th>Contract</th><th>Chain</th><th>Price</th><th>Status</th><th>TX</th><th>Date</th></tr></thead>
+          <tbody id="historyBody"><tr><td colspan="6" style="text-align:center;color:var(--muted);padding:28px;">No history yet</td></tr></tbody>
         </table>
       </div>
     </div>
 
     <!-- SETTINGS -->
     <div class="page" id="page-settings">
-      <div class="page-title">Settings</div>
-      <div class="page-sub">Account and preferences</div>
-      <div class="mint-card">
-        <div style="font-size:15px;font-weight:600;margin-bottom:16px;">Account</div>
-        <div class="mint-result-row"><span class="mint-result-label">Email</span><span class="mint-result-value" id="settingsEmail">-</span></div>
-        <div class="mint-result-row"><span class="mint-result-label">Plan</span><span class="mint-result-value" id="settingsPlan">-</span></div>
-        <div class="mint-result-row"><span class="mint-result-label">Telegram</span><span class="mint-result-value" id="settingsTg">Not linked</span></div>
-        <div style="margin-top:20px;">
-          <a href="https://t.me/Snostarbot" class="mint-btn" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;">✈️ Open Telegram Bot</a>
-        </div>
+      <div class="page-header">
+        <div class="page-title">Settings</div>
+        <div class="page-sub">Account and preferences</div>
       </div>
-      <div class="mint-card">
-        <div style="font-size:15px;font-weight:600;margin-bottom:8px;">Upgrade Plan</div>
-        <div style="font-size:14px;color:var(--muted);margin-bottom:16px;">Upgrade to Pro or Whale for more wallets and features.</div>
-        <a href="https://t.me/Snostarbot" class="mint-btn" style="display:inline-block;text-align:center;text-decoration:none;background:linear-gradient(135deg,var(--accent),var(--green));">💎 Upgrade in Bot</a>
+      <div class="card">
+        <div class="card-title">Account</div>
+        <div class="result-row"><span class="result-label">Email</span><span class="result-value" id="s-email">-</span></div>
+        <div class="result-row"><span class="result-label">Telegram</span><span class="result-value" id="s-tg">-</span></div>
+        <div class="result-row"><span class="result-label">Plan</span><span class="result-value" id="s-plan">-</span></div>
+        <div class="result-row"><span class="result-label">Member since</span><span class="result-value" id="s-date">-</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Telegram Bot</div>
+        <div style="font-size:13px;color:var(--muted);margin-bottom:16px;">Access full bot features directly in Telegram</div>
+        <a href="https://t.me/Snostarbot" target="_blank" class="action-btn action-btn-primary" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;">✈️ Open Bot</a>
+      </div>
+      <div class="card" style="border-color:rgba(124,92,252,0.3);">
+        <div class="card-title">💎 Upgrade Plan</div>
+        <div style="font-size:13px;color:var(--muted);margin-bottom:16px;">Unlock multi-wallet minting, auto-sell, and more.</div>
+        <a href="https://t.me/Snostarbot" target="_blank" class="action-btn action-btn-primary" style="display:inline-flex;text-decoration:none;background:linear-gradient(135deg,var(--accent),var(--green));">Upgrade in Bot →</a>
+      </div>
+      <div class="card" style="border-color:rgba(248,113,113,0.2);">
+        <div class="card-title" style="color:var(--red);">Danger Zone</div>
+        <button class="action-btn" style="background:rgba(248,113,113,0.1);color:var(--red);border:1px solid rgba(248,113,113,0.3);" onclick="logout()">Sign Out</button>
       </div>
     </div>
   </div>
@@ -363,21 +398,23 @@
 <div class="modal-overlay" id="addWalletModal">
   <div class="modal">
     <div class="modal-title">Add Wallet</div>
-    <div class="form-group">
+    <div class="form-group" style="margin-bottom:12px;">
       <label class="form-label">Label (optional)</label>
-      <input type="text" class="form-input" id="newWalletLabel" placeholder="e.g. Main Wallet">
+      <input type="text" class="form-input" id="wLabel" placeholder="e.g. Main Wallet">
     </div>
-    <div class="form-group">
+    <div class="form-group" style="margin-bottom:6px;">
       <label class="form-label">Private Key</label>
-      <input type="password" class="form-input" id="newWalletKey" placeholder="0x...">
+      <input type="password" class="form-input" id="wKey" placeholder="0x...66 characters">
     </div>
-    <div style="font-size:12px;color:var(--muted);margin-top:-8px;margin-bottom:16px;">🔒 Encrypted with AES-256 before storage</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:16px;">🔒 AES-256 encrypted before storage</div>
     <div class="modal-actions">
-      <button class="modal-btn modal-btn-cancel" onclick="hideAddWallet()">Cancel</button>
-      <button class="modal-btn modal-btn-confirm" onclick="addWallet()">Add Wallet</button>
+      <button class="modal-btn" style="background:var(--bg3);color:var(--text);" onclick="hideModal('addWalletModal')">Cancel</button>
+      <button class="modal-btn" style="background:var(--accent);color:white;" onclick="addWallet()">Add Wallet</button>
     </div>
   </div>
 </div>
+
+<div class="toast" id="toast"></div>
 
 <script>
 const API='https://snostarbot-web.onrender.com';
@@ -385,22 +422,22 @@ let token=localStorage.getItem('snb_token');
 let currentUser=null;
 let detectedContract=null;
 
-// Init
-window.onload=()=>{
-  if(token)loadDashboard();
-};
+window.onload=()=>{if(token)initDashboard();};
+
+function showToast(msg,type='success'){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.className='toast show '+(type==='error'?'error':'success');
+  setTimeout(()=>t.className='toast',3000);
+}
 
 function showError(msg){
   const el=document.getElementById('errorMsg');
-  el.textContent=msg;
-  el.style.display='block';
-  setTimeout(()=>el.style.display='none',4000);
+  el.textContent=msg;el.style.display='block';
+  setTimeout(()=>el.style.display='none',5000);
 }
 
 function switchTab(tab){
-  document.querySelectorAll('.auth-tab').forEach((t,i)=>{
-    t.classList.toggle('active',i===(tab==='login'?0:1));
-  });
+  document.querySelectorAll('.auth-tab').forEach((t,i)=>t.classList.toggle('active',i===(tab==='login'?0:1)));
   document.getElementById('loginForm').style.display=tab==='login'?'block':'none';
   document.getElementById('registerForm').style.display=tab==='register'?'block':'none';
 }
@@ -410,198 +447,217 @@ async function login(){
   const password=document.getElementById('loginPassword').value;
   if(!email||!password)return showError('Please fill all fields');
   try{
-    const res=await fetch(API+'/api/auth/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,password})});
-    const data=await res.json();
-    if(data.error)return showError(data.error);
-    token=data.token;
-    localStorage.setItem('snb_token',token);
-    currentUser=data.user;
-    loadDashboard();
-  }catch(e){showError('Connection error. Make sure the server is running.');}
+    const r=await fetch(API+'/api/auth/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,password})});
+    const d=await r.json();
+    if(d.error)return showError(d.error);
+    token=d.token;localStorage.setItem('snb_token',token);currentUser=d.user;initDashboard();
+  }catch(e){showError('Connection error. Try again.');}
 }
 
 async function register(){
   const email=document.getElementById('regEmail').value;
   const password=document.getElementById('regPassword').value;
-  const confirm=document.getElementById('regPasswordConfirm').value;
+  const confirm=document.getElementById('regConfirm').value;
   if(!email||!password)return showError('Please fill all fields');
   if(password!==confirm)return showError('Passwords do not match');
+  if(password.length<8)return showError('Password must be at least 8 characters');
   try{
-    const res=await fetch(API+'/api/auth/register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,password})});
-    const data=await res.json();
-    if(data.error)return showError(data.error);
-    token=data.token;
-    localStorage.setItem('snb_token',token);
-    currentUser=data.user;
-    loadDashboard();
+    const r=await fetch(API+'/api/auth/register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,password})});
+    const d=await r.json();
+    if(d.error)return showError(d.error);
+    token=d.token;localStorage.setItem('snb_token',token);currentUser=d.user;initDashboard();
   }catch(e){showError('Connection error.');}
 }
 
 function telegramLogin(){
-  const id=prompt('Enter your Telegram ID (get it from @userinfobot):');
-  if(!id)return;
+  const id=prompt('Enter your Telegram ID:\n\n(Get it by messaging @userinfobot on Telegram)');
+  if(!id||isNaN(parseInt(id)))return showError('Invalid Telegram ID');
   const username=prompt('Enter your Telegram username (without @):');
-  fetch(API+'/api/auth/telegram',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({telegram_id:parseInt(id),telegram_username:username})})
-    .then(r=>r.json()).then(data=>{
-      if(data.error)return showError(data.error);
-      token=data.token;
-      localStorage.setItem('snb_token',token);
-      currentUser=data.user;
-      loadDashboard();
+  fetch(API+'/api/auth/telegram',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({telegram_id:parseInt(id),telegram_username:username||''})})
+    .then(r=>r.json()).then(d=>{
+      if(d.error)return showError(d.error);
+      token=d.token;localStorage.setItem('snb_token',token);currentUser=d.user;initDashboard();
     }).catch(()=>showError('Connection error.'));
 }
 
-async function loadDashboard(){
+async function initDashboard(){
   document.getElementById('authWrap').style.display='none';
   document.getElementById('dashboard').style.display='block';
   try{
-    const res=await fetch(API+'/api/me',{headers:{Authorization:'Bearer '+token}});
-    const user=await res.json();
-    if(user.error){logout();return;}
-    currentUser=user;
-    document.getElementById('userEmail').textContent=user.email||user.telegram_username||'User';
-    document.getElementById('userPlan').textContent=user.plan||'free';
-    document.getElementById('userAvatar').textContent=(user.email||user.telegram_username||'S')[0].toUpperCase();
-    document.getElementById('planDisplay').textContent=(user.plan||'free').toUpperCase();
-    document.getElementById('settingsEmail').textContent=user.email||'-';
-    document.getElementById('settingsPlan').textContent=user.plan||'free';
-    document.getElementById('settingsTg').textContent=user.telegram_username?'@'+user.telegram_username:'Not linked';
-    loadWallets();
-    loadMints();
+    const r=await fetch(API+'/api/me',{headers:{Authorization:'Bearer '+token}});
+    const u=await r.json();
+    if(u.error){logout();return;}
+    currentUser=u;
+    const name=u.email||u.telegram_username||'User';
+    document.getElementById('userName').textContent=name;
+    document.getElementById('userPlan').textContent=u.plan||'free';
+    document.getElementById('userAvatar').textContent=name[0].toUpperCase();
+    document.getElementById('statPlan').textContent=(u.plan||'free').toUpperCase();
+    document.getElementById('s-email').textContent=u.email||'-';
+    document.getElementById('s-tg').textContent=u.telegram_username?'@'+u.telegram_username:'Not linked';
+    document.getElementById('s-plan').textContent=u.plan||'free';
+    document.getElementById('s-date').textContent=u.created_at?new Date(u.created_at).toLocaleDateString():'-';
+    loadWallets();loadMints();loadGas();
   }catch(e){logout();}
 }
 
 async function loadWallets(){
-  const res=await fetch(API+'/api/wallets',{headers:{Authorization:'Bearer '+token}});
-  const wallets=await res.json();
-  document.getElementById('walletCount').textContent=wallets.length;
+  const r=await fetch(API+'/api/wallets',{headers:{Authorization:'Bearer '+token}});
+  const wallets=await r.json();
+  document.getElementById('statWallets').textContent=wallets.length;
   const grid=document.getElementById('walletGrid');
-  grid.innerHTML='<div class="add-wallet-card" onclick="showAddWallet()"><div class="add-wallet-icon">+</div><div class="add-wallet-text">Add Wallet</div></div>';
-  wallets.forEach(w=>{
-    const card=document.createElement('div');
-    card.className='wallet-card';
-    card.innerHTML=`
-      <div class="wallet-card-top"><span class="wallet-label">${w.label}</span><span class="badge badge-purple">#${w.wallet_index}</span></div>
+  if(!wallets.length){grid.innerHTML='<div style="text-align:center;color:var(--muted);padding:40px;grid-column:1/-1;">No wallets yet. Add one to get started!</div>';return;}
+  grid.innerHTML=wallets.map(w=>`
+    <div class="wallet-card">
+      <div class="wallet-top"><span class="wallet-label-text">${w.label}</span><span class="badge badge-purple">#${w.wallet_index}</span></div>
       <div class="wallet-addr">${w.address}</div>
       <div class="wallet-actions">
-        <button class="wallet-action-btn" onclick="copyAddr('${w.address}')">Copy</button>
-        <button class="wallet-action-btn danger" onclick="deleteWallet(${w.id})">Delete</button>
-      </div>`;
-    grid.insertBefore(card,grid.firstChild);
-  });
+        <button class="wallet-btn" onclick="copyText('${w.address}','Address copied!')">Copy</button>
+        <button class="wallet-btn danger" onclick="deleteWallet(${w.id})">Delete</button>
+      </div>
+    </div>`).join('');
 }
 
 async function loadMints(){
-  const res=await fetch(API+'/api/mints',{headers:{Authorization:'Bearer '+token}});
-  const mints=await res.json();
+  const r=await fetch(API+'/api/mints',{headers:{Authorization:'Bearer '+token}});
+  const mints=await r.json();
   const success=mints.filter(m=>m.status==='success').length;
-  document.getElementById('totalMints').textContent=mints.length;
-  document.getElementById('successRate').textContent=mints.length?Math.round(success/mints.length*100)+'%':'0%';
-  const tbody=document.getElementById('recentMints');
-  const histTbody=document.getElementById('historyTable');
+  document.getElementById('statMints').textContent=mints.length;
+  document.getElementById('statRate').textContent=mints.length?Math.round(success/mints.length*100)+'%':'0%';
+  const tbody=document.getElementById('recentActivity');
+  const hist=document.getElementById('historyBody');
   if(!mints.length){
-    tbody.innerHTML='<tr><td colspan="5" style="text-align:center;color:var(--muted);padding:32px;">No mints yet. Start minting in the bot!</td></tr>';
-    histTbody.innerHTML='<tr><td colspan="6" style="text-align:center;color:var(--muted);padding:32px;">No mint history yet.</td></tr>';
+    tbody.innerHTML='<tr><td colspan="4" style="text-align:center;color:var(--muted);padding:28px;">No activity yet</td></tr>';
+    hist.innerHTML='<tr><td colspan="6" style="text-align:center;color:var(--muted);padding:28px;">No history yet</td></tr>';
     return;
   }
-  const rows=mints.slice(0,5).map(m=>`
-    <tr>
-      <td class="mono">${m.contract?m.contract.slice(0,10)+'...':'-'}</td>
-      <td>${m.chain||'ethereum'}</td>
-      <td><span class="badge ${m.status==='success'?'badge-green':'badge-red'}">${m.status}</span></td>
-      <td class="mono">${m.tx_hash?m.tx_hash.slice(0,12)+'...':'-'}</td>
-      <td style="color:var(--muted);font-size:12px;">${new Date(m.created_at).toLocaleDateString()}</td>
-    </tr>`).join('');
-  tbody.innerHTML=rows;
-  histTbody.innerHTML=mints.map(m=>`
-    <tr>
-      <td class="mono">${m.contract?m.contract.slice(0,10)+'...':'-'}</td>
-      <td>${m.chain||'eth'}</td>
-      <td>${m.price||'-'}</td>
-      <td><span class="badge ${m.status==='success'?'badge-green':'badge-red'}">${m.status}</span></td>
-      <td class="mono">${m.tx_hash?'<a href="https://etherscan.io/tx/'+m.tx_hash+'" target="_blank" style="color:var(--accent2);">'+m.tx_hash.slice(0,12)+'...</a>':'-'}</td>
-      <td style="color:var(--muted);font-size:12px;">${new Date(m.created_at).toLocaleDateString()}</td>
-    </tr>`).join('');
+  tbody.innerHTML=mints.slice(0,5).map(m=>`<tr>
+    <td class="mono">${m.contract?m.contract.slice(0,12)+'...':'-'}</td>
+    <td>${m.chain||'eth'}</td>
+    <td><span class="badge ${m.status==='success'?'badge-green':'badge-red'}">${m.status}</span></td>
+    <td style="color:var(--muted);font-size:11px;">${new Date(m.created_at).toLocaleDateString()}</td>
+  </tr>`).join('');
+  hist.innerHTML=mints.map(m=>`<tr>
+    <td class="mono">${m.contract?m.contract.slice(0,12)+'...':'-'}</td>
+    <td>${m.chain||'eth'}</td>
+    <td>${m.price||'-'}</td>
+    <td><span class="badge ${m.status==='success'?'badge-green':'badge-red'}">${m.status}</span></td>
+    <td class="mono">${m.tx_hash?`<a href="https://etherscan.io/tx/${m.tx_hash}" target="_blank" style="color:var(--accent2);">${m.tx_hash.slice(0,14)}...</a>`:'-'}</td>
+    <td style="color:var(--muted);font-size:11px;">${new Date(m.created_at).toLocaleDateString()}</td>
+  </tr>`).join('');
 }
 
-async function detectContract(){
+async function loadGas(){
+  try{
+    const r=await fetch(API+'/api/gas',{headers:{Authorization:'Bearer '+token}});
+    const g=await r.json();
+    if(g.eco)document.getElementById('g-eco').textContent=g.eco;
+    if(g.standard)document.getElementById('g-std').textContent=g.standard;
+    if(g.fast)document.getElementById('g-fast').textContent=g.fast;
+    if(g.sniper)document.getElementById('g-sniper').textContent=g.sniper;
+  }catch(e){}
+}
+
+async function detectMint(){
   const input=document.getElementById('mintInput').value.trim();
   const chain=document.getElementById('mintChain').value;
-  if(!input)return alert('Please enter a link or contract address');
-  let contract=input;
-  const addrMatch=input.match(/(0x[a-fA-F0-9]{40})/);
-  if(addrMatch)contract=addrMatch[1];
-  else if(input.includes('opensea.io')||input.includes('magiceden')){
-    alert('Please paste the contract address directly for now. Get it from the OpenSea collection page.');
-    return;
-  }
-  const btn=document.querySelector('.mint-btn');
-  btn.textContent='Detecting...';
-  btn.disabled=true;
+  if(!input)return showToast('Please enter a link or contract address','error');
+  let contract=input.match(/(0x[a-fA-F0-9]{40})/)?.[1];
+  if(!contract)return showToast('Please enter a valid contract address (0x...)','error');
+  const btn=document.getElementById('detectBtn');
+  btn.textContent='Detecting...';btn.disabled=true;
   try{
-    const res=await fetch(API+'/api/detect',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify({contract,chain})});
-    const data=await res.json();
-    if(data.error){alert('Error: '+data.error);return;}
-    detectedContract=data;
-    document.getElementById('res-contract').textContent=data.contract.slice(0,20)+'...';
-    document.getElementById('res-price').textContent=parseFloat(data.mintPrice)===0?'FREE':parseFloat(data.mintPrice).toFixed(4)+' ETH';
-    document.getElementById('res-max').textContent=data.maxPerWallet||1;
-    document.getElementById('res-status').innerHTML=data.isLive?'<span class="badge badge-green">LIVE</span>':'<span class="badge badge-yellow">Not Active</span>';
-    document.getElementById('res-supply').textContent=data.maxSupply>0?data.totalSupply+'/'+data.maxSupply:'Unknown';
-    document.getElementById('res-start').textContent=data.startTime?new Date(data.startTime).toLocaleString():'-';
+    const r=await fetch(API+'/api/detect',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify({contract,chain})});
+    const d=await r.json();
+    if(d.error){showToast(d.error,'error');return;}
+    detectedContract=d;
+    document.getElementById('r-contract').textContent=d.contract;
+    document.getElementById('r-price').textContent=parseFloat(d.mintPrice)===0?'FREE ✅':parseFloat(d.mintPrice).toFixed(4)+' ETH';
+    document.getElementById('r-max').textContent=d.maxPerWallet||1;
+    document.getElementById('r-status').innerHTML=d.isLive?'<span class="live-dot"></span><span style="color:var(--green)">LIVE NOW</span>':'<span style="color:var(--yellow)">Not Active</span>';
+    document.getElementById('r-supply').textContent=d.maxSupply>0?d.totalSupply+'/'+d.maxSupply+(d.remaining<=0?' 🔴 MINTED OUT':''):'Unknown';
+    document.getElementById('r-start').textContent=d.startTime?new Date(d.startTime).toLocaleString():'-';
+    document.getElementById('r-end').textContent=d.endTime?new Date(d.endTime).toLocaleString():'-';
     document.getElementById('mintResult').style.display='block';
-    document.getElementById('mintActions').style.display='flex';
-  }catch(e){alert('Connection error.');}
-  finally{btn.textContent='🔍 Detect Mint Details';btn.disabled=false;}
+    document.getElementById('mintActionsCard').style.display='block';
+    showToast('Contract detected!');
+  }catch(e){showToast('Connection error','error');}
+  finally{btn.textContent='🔍 Detect';btn.disabled=false;}
 }
 
-function openInBot(cmd){
-  if(!detectedContract)return;
-  window.open('https://t.me/Snostarbot?start='+cmd+'_'+detectedContract.contract,'_blank');
+async function checkEligibility(){
+  const contract=document.getElementById('eligContract').value.trim();
+  if(!contract)return showToast('Enter a contract address','error');
+  const r=await fetch(API+'/api/wallets',{headers:{Authorization:'Bearer '+token}});
+  const wallets=await r.json();
+  if(!wallets.length)return showToast('No wallets added yet','error');
+  document.getElementById('eligResult').style.display='block';
+  document.getElementById('eligContent').innerHTML='<div style="color:var(--muted);padding:8px;">Checking '+wallets.length+' wallets...</div>';
+  // Show results - actual WL check done via bot
+  const html=wallets.map(w=>`
+    <div class="result-row">
+      <span class="result-label">${w.label}</span>
+      <span class="result-value mono" style="font-size:11px;">${w.address.slice(0,10)}...</span>
+      <a href="https://t.me/Snostarbot" target="_blank" style="color:var(--accent2);font-size:12px;">Check in Bot →</a>
+    </div>`).join('');
+  document.getElementById('eligContent').innerHTML=html+'<div style="margin-top:12px;font-size:12px;color:var(--muted);">Full WL detection with Lanyard proof runs in the Telegram bot. Use /checkallwallets for complete results.</div>';
 }
 
-function showAddWallet(){document.getElementById('addWalletModal').classList.add('show');}
-function hideAddWallet(){document.getElementById('addWalletModal').classList.remove('show');}
+function botAction(cmd){
+  if(!detectedContract)return showToast('Detect a contract first','error');
+  window.open('https://t.me/Snostarbot','_blank');
+  showToast('Opening bot... use /'+cmd+' after setting contract');
+}
+
+function setBotGas(strategy){
+  window.open('https://t.me/Snostarbot','_blank');
+  showToast('Opening bot... use /setgas '+strategy);
+}
 
 async function addWallet(){
-  const key=document.getElementById('newWalletKey').value.trim();
-  const label=document.getElementById('newWalletLabel').value.trim();
-  if(!key||!key.startsWith('0x')||key.length!==66)return alert('Invalid private key. Must start with 0x and be 66 chars.');
+  const key=document.getElementById('wKey').value.trim();
+  const label=document.getElementById('wLabel').value.trim();
+  if(!key||!key.startsWith('0x')||key.length!==66)return showToast('Invalid private key','error');
   try{
-    const{ethers}=await import('https://cdn.jsdelivr.net/npm/ethers@6.11.1/dist/ethers.min.js');
+    // Derive address client-side using ethers from CDN
+    const script=document.createElement('script');
+    script.src='https://cdn.jsdelivr.net/npm/ethers@6.11.1/dist/ethers.umd.min.js';
+    document.head.appendChild(script);
+    await new Promise(r=>script.onload=r);
     const wallet=new ethers.Wallet(key);
-    const res=await fetch(API+'/api/wallets',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify({label,privateKey:key,address:wallet.address})});
-    const data=await res.json();
-    if(data.error)return alert(data.error);
-    hideAddWallet();
-    document.getElementById('newWalletKey').value='';
-    document.getElementById('newWalletLabel').value='';
+    const r=await fetch(API+'/api/wallets',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify({label,privateKey:key,address:wallet.address})});
+    const d=await r.json();
+    if(d.error)return showToast(d.error,'error');
+    hideModal('addWalletModal');
+    document.getElementById('wKey').value='';
+    document.getElementById('wLabel').value='';
     loadWallets();
-  }catch(e){alert('Error: '+e.message);}
+    showToast('Wallet added!');
+  }catch(e){showToast('Error: '+e.message,'error');}
 }
 
 async function deleteWallet(id){
   if(!confirm('Delete this wallet?'))return;
   await fetch(API+'/api/wallets/'+id,{method:'DELETE',headers:{Authorization:'Bearer '+token}});
-  loadWallets();
+  loadWallets();showToast('Wallet deleted');
 }
 
-function copyAddr(addr){navigator.clipboard.writeText(addr);alert('Address copied!');}
+function copyText(text,msg){navigator.clipboard.writeText(text).then(()=>showToast(msg||'Copied!'));}
+function showModal(id){document.getElementById(id).classList.add('show');}
+function hideModal(id){document.getElementById(id).classList.remove('show');}
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');}
 
-function showPage(name){
+function showPage(name,el){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
   document.getElementById('page-'+name).classList.add('active');
-  event.currentTarget.classList.add('active');
+  if(el)el.classList.add('active');
   if(window.innerWidth<=768)document.getElementById('sidebar').classList.remove('open');
+  if(name==='gas')loadGas();
 }
 
-function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');}
-
 function logout(){
-  localStorage.removeItem('snb_token');
-  token=null;
-  currentUser=null;
+  localStorage.removeItem('snb_token');token=null;currentUser=null;
   document.getElementById('authWrap').style.display='flex';
   document.getElementById('dashboard').style.display='none';
 }
